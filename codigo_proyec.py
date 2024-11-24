@@ -12,6 +12,13 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+import streamlit as st
+import pandas as pd
+import numpy as np
+import plotly.express as px
+from Bio import SeqIO
+from Bio.SeqUtils import GC
+
 st.set_page_config(page_title="Análisis de Secuencias con Biopython", layout="wide")
 st.title("🔬 Análisis de Secuencias con Biopython")
 st.markdown("""
@@ -103,30 +110,15 @@ if selected_tool == "Alineación":
     Seq2: AGCTG-C
     Puntuación de alineación: 92
     """)
-    def alinear_secuencias(archivo):
-    aligner = Align.PairwiseAligner()
-    aligner.mode = 'global'
-    aligner.match_score = 2
-    aligner.mismatch_score = -1
-    aligner.open_gap_score = -2
-    aligner.extend_gap_score = -0.5
-
-    records = SeqIO.parse(archivo, "fasta")
-    secuencias = [record.seq for record in records]
-
-    # Realizar la alinea
 elif selected_tool == "Predicción de estructuras":
     st.subheader("Predicción de Estructuras Proteicas")
     st.text("Estructura 3D prevista (Placeholder):")
     st.image("https://via.placeholder.com/300", caption="Estructura 3D prevista")
-
 elif selected_tool == "Análisis estadístico":
     st.subheader("Análisis de Correlación Estadística")
- st = pd.DataFrame.from_dict(nuc, orient ='index')
-st = ndf.reset_index()
-st = ndf.rename(columns={"index": "Nucleotide", 0: "Composition"})
-st.head()
-st = sns.barplot(x="Nucleotide", y="Composition", data=ndf)
+    example_data = {"Contenido": ["Contenido GC", "Contenido AT", "Longitud de la secuencia"],
+                    "Correlación con el objetivo": [0.87, -0.56, 0.45]}
+    st.table(pd.DataFrame(example_data))
 
 if data is not None:
     st.sidebar.markdown("---")
