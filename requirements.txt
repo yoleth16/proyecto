@@ -4,5 +4,4 @@ numpy
 plotly
 Bio
 SeqIO
-Bio.SeqUtils
 GC
