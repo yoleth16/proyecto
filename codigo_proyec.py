@@ -107,11 +107,15 @@ elif selected_tool == "Predicción de estructuras":
     st.subheader("Predicción de Estructuras Proteicas")
     st.text("Estructura 3D prevista (Placeholder):")
     st.image("https://via.placeholder.com/300", caption="Estructura 3D prevista")
+
 elif selected_tool == "Análisis estadístico":
     st.subheader("Análisis de Correlación Estadística")
-    example_data = {"Contenido": ["Contenido GC", "Contenido AT", "Longitud de la secuencia"],
-                    "Correlación con el objetivo": [0.87, -0.56, 0.45]}
-    st.table(pd.DataFrame(example_data))
+
+ndf = pd.DataFrame.from_dict(nuc, orient ='index')
+ndf = ndf.reset_index()
+ndf = ndf.rename(columns={"index": "Nucleotide", 0: "Composition"})
+ndf.head()
+nbar = sns.barplot(x="Nucleotide", y="Composition", data=ndf)
 
 if data is not None:
     st.sidebar.markdown("---")
