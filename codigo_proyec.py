@@ -110,12 +110,11 @@ elif selected_tool == "Predicción de estructuras":
 
 elif selected_tool == "Análisis estadístico":
     st.subheader("Análisis de Correlación Estadística")
-
-ndf = pd.DataFrame.from_dict(nuc, orient ='index')
-ndf = ndf.reset_index()
-ndf = ndf.rename(columns={"index": "Nucleotide", 0: "Composition"})
-ndf.head()
-nbar = sns.barplot(x="Nucleotide", y="Composition", data=ndf)
+ st = pd.DataFrame.from_dict(nuc, orient ='index')
+st = ndf.reset_index()
+st = ndf.rename(columns={"index": "Nucleotide", 0: "Composition"})
+st.head()
+st = sns.barplot(x="Nucleotide", y="Composition", data=ndf)
 
 if data is not None:
     st.sidebar.markdown("---")
