@@ -1,6 +1,8 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
-import plotly.express as px
-from Bio import SeqIO
-from Bio.SeqUtils import GC
+streamlit
+pandas
+numpy
+plotly.express
+Bio
+SeqIO
+Bio.SeqUtils
+GC
