@@ -103,6 +103,18 @@ if selected_tool == "Alineación":
     Seq2: AGCTG-C
     Puntuación de alineación: 92
     """)
+    def alinear_secuencias(archivo):
+    aligner = Align.PairwiseAligner()
+    aligner.mode = 'global'
+    aligner.match_score = 2
+    aligner.mismatch_score = -1
+    aligner.open_gap_score = -2
+    aligner.extend_gap_score = -0.5
+
+    records = SeqIO.parse(archivo, "fasta")
+    secuencias = [record.seq for record in records]
+
+    # Realizar la alinea
 elif selected_tool == "Predicción de estructuras":
     st.subheader("Predicción de Estructuras Proteicas")
     st.text("Estructura 3D prevista (Placeholder):")
