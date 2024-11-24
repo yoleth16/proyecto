@@ -12,7 +12,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 from Bio import SeqIO
-from Bio.SeqUtils import GC
+from Bio.SeqUtils import gc_fraction
 
 st.set_page_config(page_title="Análisis de Secuencias con Biopython", layout="wide")
 st.title("🔬 Análisis de Secuencias con Biopython")
