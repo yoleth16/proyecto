@@ -1,7 +1,7 @@
 streamlit
 pandas
 numpy
-plotly.express
+plotly
 Bio
 SeqIO
 Bio.SeqUtils
